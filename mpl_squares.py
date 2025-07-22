@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 
+input_values = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
 
 fig, ax = plt.subplots() # fig represent figure, ax represent single plot in the figure
-ax.plot(squares, linewidth=3) # plot is used for plotting the data in a meaningful way. linewidth represent the plot line width
+ax.plot(input_values, squares, linewidth=3) # plot is used for plotting the data in a meaningful way. linewidth represent the plot line width
 
 # Set chart title and label, axes
 ax.set_title("Square Numbers", fontsize=14) #  the chart title
