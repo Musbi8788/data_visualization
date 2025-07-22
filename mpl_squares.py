@@ -8,9 +8,7 @@ plt.style.use('seaborn-v0_8')
 
 fig, ax = plt.subplots() # fig represent figure, ax represent single plot in the figure
 
-ax.scatter(x_values, y_values, s=10, c=(0, 0.8, 0)) # s adjust the dot size
-
-# ax.plot(input_values, squares, linewidth=3) # plot is used for plotting the data in a meaningful way. linewidth represent the plot line width
+ax.scatter(x_values, y_values, s=10, c=(0, 0.8, 0)) # s adjust the dot size and change the line color with c=...
 
 # Set chart title and label, axes
 ax.set_title("Square Numbers", fontsize=24) #  the chart title
