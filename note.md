@@ -14,3 +14,6 @@ to check the avaible built in styles run
 ### Plotting and Styling Individual Points with scatter()
 this method show a dot on a specific in the chart and to make it apply that the only thing you do is to pass x-y values
 ```ax.scatter(2, 4)```
+
+To define a color we use ```c='red'``` scatter() method and we can also you RGB we value between zore and one eg ```c=(0, 0.8, 0)```
+
