@@ -8,7 +8,7 @@ plt.style.use('seaborn-v0_8')
 
 fig, ax = plt.subplots() # fig represent figure, ax represent single plot in the figure
 
-ax.scatter(x_values, y_values, s=10, c=(0, 0.8, 0)) # s adjust the dot size and change the line color with c=...
+ax.scatter(x_values, y_values, s=10, c=y_values, cmap=plt.cm.Greens) # s adjust the dot size and change the line color with c=...
 
 # Set chart title and label, axes
 ax.set_title("Square Numbers", fontsize=24) #  the chart title
@@ -21,4 +21,7 @@ ax.tick_params(axis='both', which='major' ,labelsize=14) # axis both apply the e
 # Set the range of each axis
 ax.axis([0, 1100, 0, 1100000]) #type: ignore
 
-plt.show() # display the matplotlib viewer
+# plt.show() # display the matplotlib viewer
+
+# save the plot 
+plt.savefig('squares_plot.png', bbox_inches='tight') 
