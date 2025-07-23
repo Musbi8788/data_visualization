@@ -21,6 +21,10 @@ while True:
     ax.scatter(0, 0, c='green', edgecolors='none', s=100)
     ax.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=100) 
 
+    # Remove the axes
+    ax.get_xaxis().set_visible(False) # remove x axis
+    ax.get_yaxis().set_visible(False) # remove y axis
+
     plt.show()
     # plt.savefig("random_walk.png", bbox_inches='tight')
 
