@@ -15,7 +15,7 @@ while True:
     fig, ax = plt.subplots()
     # generate list of number that are equal to number in the points
     point_numbers = range(rw.num_points)
-    # ax.scatter(rw.x_values, rw.y_values, c=point_numbers,cmap=plt.cm.Blues, edgecolors='none', s=15) # edgecolors none get rid of the black outline #type: ignore
+    ax.scatter(rw.x_values, rw.y_values, c=point_numbers,cmap=plt.cm.Blues, edgecolors='none', s=15) # edgecolors none get rid of the black outline #type: ignore
 
     # Emphasize the first and last points.
     ax.scatter(0, 0, c='green', edgecolors='none', s=100)
