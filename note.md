@@ -27,3 +27,6 @@ Examples, scroll down to Color, and click Colormap reference.
 ```plt.savefig('squares_plot.png', bbox_inches='tight')```
 
 ### Random walk
+
+
+stop 361
