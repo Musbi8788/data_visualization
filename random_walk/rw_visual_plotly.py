@@ -2,7 +2,7 @@ from plotly.graph_objs import Scatter, Layout
 from plotly import offline
 
 
-from random_walk import RandomWalk
+from .random_walk import RandomWalk
 
 
 # Keep making new walks, as long as the program is active.
