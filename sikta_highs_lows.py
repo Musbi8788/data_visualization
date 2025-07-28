@@ -20,8 +20,7 @@ with open(file_name) as f:
         highs.append(high)
         lows.append(low)
 
-    
-    
+
 
     # Plot the high and low temperature.
     plt.style.use('seaborn-v0_8')
