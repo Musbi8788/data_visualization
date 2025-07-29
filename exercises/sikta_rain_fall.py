@@ -31,7 +31,7 @@ with open(file_name) as f:
     fig.autofmt_xdate() # draw the date dagonally
     plt.ylabel("Temperature (F)", fontsize=16)
     plt.tick_params(axis='both', which='major', labelsize=16)
-    # plt.savefig('sitka_rainfall.png',    bbox_inches="tight")
+    plt.savefig('sitka_rainfall.png',    bbox_inches="tight")
 
     plt.show()
 
