@@ -10,14 +10,16 @@ with open(filename, encoding='utf-8') as f:
 
 all_eq_dicts = all_eq_data['features']  # get all the feature in the eq data
 
-mags, lons, lats = [], [], []
+mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
-    mag = eq_dict['properties']['mag']  # Get the mag value
-    lon = eq_dict['geometry']['coordinates'][0]  # Get lon
+    # mag = eq_dict['properties']['mag']  # Get the mag value
+    # lon = eq_dict['geometry']['coordinates'][0]  # Get lon
     lat = eq_dict['geometry']['coordinates'][1]  # Get lat
-    mags.append(mag)
-    lons.append(lon)
-    lats.append(lat)
+    title = eq_dict['properties']['title']
+    mags.append(eq_dict['properties']['mag'])
+    lons.append(eq_dict['geometry']['coordinates'][0])
+    lats.append(eq_dict['geometry']['coordinates'][1])
+    hover_texts.append(eq_dict['properties']['title'])
 
 # Map the earthequakes
 data = [
@@ -25,6 +27,7 @@ data = [
         'type': 'scattergeo',
         'lon': lons,
         'lat': lats,
+        'text': hover_texts,
         'marker': {
             'size': [3*mag for mag in mags],
             'color': mags, # Detemind colour used
