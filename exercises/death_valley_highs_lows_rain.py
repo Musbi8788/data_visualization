@@ -8,12 +8,10 @@ filename = 'data/death_valley_2018_simple.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
-    # print(header)
-    for index , column_reader in enumerate(header_row):
-        print(index, column_reader)
 
     # Get dates, and high and low tempratures for this file.
     dates, highs, lows, rains = [], [], [], []
+    
     for row in reader:
         current_date = datetime.strptime(row[2], "%Y-%m-%d")
         try:

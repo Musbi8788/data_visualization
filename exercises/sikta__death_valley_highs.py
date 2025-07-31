@@ -9,37 +9,46 @@ with open(file_name) as f:
     reader = csv.reader(f) # read the entire file
     header_row = next(reader) # get first line for the file
     
+    # Set the station title
+    sk_station = header_row.index("NAME")
     # Get dates high temperatures from this sitka.
+    sk_max_temps = header_row.index("TMAX")
     sk_dates, sitka_highs = [], []
+    sk_title = ''
     # Loop through the entire file and get the max_tem values
     for row in reader:
         current_date = datetime.strptime(row[2], '%Y-%m-%d')
-        sk_high = int(row[5]) # Get the MaxTem results 
+        sk_high = int(row[sk_max_temps]) # Get the MaxTem results 
         sk_dates.append(current_date)
         sitka_highs.append(sk_high)
+        sk_title = row[sk_station]
+    
     
 
 filename = 'data/death_valley_2018_simple.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
-    # print(header)
-    # for index , column_reader in enumerate(header_row):
-    #     print(index, column_reader)
+
+    # Set the dv station
+    dv_station_index = header_row.index("NAME")
 
     # Get dates, and high and low tempratures for this file.
+    dv_max_temps = header_row.index("TMAX") # get the tmax index 
     dv_dates, death_valley_highs, = [], []
+    dv_title = ''
+    
     for row in reader:
         current_date = datetime.strptime(row[2], "%Y-%m-%d")
+        dv_title = row[dv_station_index]
         try:
-            dv_high = int(row[4])
-            
+            dv_high = int(row[dv_max_temps]) # Get the max temps values
         except ValueError:
             print(f"Missing date for {current_date}")
         else:
             dv_dates.append(current_date)
             death_valley_highs.append(dv_high)
-            
+    print(dv_title)     
 
 
     # Plot the sitka and death valley high temperature.
@@ -51,7 +60,8 @@ with open(filename) as f:
     ax.set_ylim(20, 130)
 
     # Format Plot
-    plt.title("Daily Sitka and Death Valley high temperatures - 2018", fontsize=20)
+    plt.title(
+        f"Daily {sk_title} vs {dv_title}\nHigh temperatures - 2018", fontsize=18)
     plt.xlabel('', fontsize=16)
     fig.autofmt_xdate() # draw the date diagonally
     plt.ylabel("Temperature (F)", fontsize=16)

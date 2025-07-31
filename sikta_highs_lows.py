@@ -10,6 +10,7 @@ with open(file_name) as f:
     header_row = next(reader) # get first line for the file
     
     # Get dates high temperatures from this file.
+    
     dates, highs, lows = [], [], []
     # Loop through the entire file and get the max_tem values
     for row in reader:
