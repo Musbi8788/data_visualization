@@ -48,7 +48,7 @@ with open(filename) as f:
         else:
             dv_dates.append(current_date)
             death_valley_highs.append(dv_high)
-    print(dv_title)     
+        
 
 
     # Plot the sitka and death valley high temperature.
