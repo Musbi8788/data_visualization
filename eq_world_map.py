@@ -10,13 +10,13 @@ with open(filename, encoding='utf-8') as f:
 
 # Set the data title
 eq_title = all_eq_data['metadata']['title']
-print(eq_title)
+
 
 all_eq_dicts = all_eq_data['features']  # get all the feature in the eq data
 
 mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
-
+    
     mags.append(eq_dict['properties']['mag'])
     lons.append(eq_dict['geometry']['coordinates'][0])
     lats.append(eq_dict['geometry']['coordinates'][1])
