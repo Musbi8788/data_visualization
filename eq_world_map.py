@@ -8,14 +8,15 @@ filename = 'data/eq_data_30_days_m1.json'
 with open(filename, encoding='utf-8') as f:
     all_eq_data = json.load(f)  # store the entire json data
 
+# Set the data title
+eq_title = all_eq_data['metadata']['title']
+print(eq_title)
+
 all_eq_dicts = all_eq_data['features']  # get all the feature in the eq data
 
 mags, lons, lats, hover_texts = [], [], [], []
 for eq_dict in all_eq_dicts:
-    # mag = eq_dict['properties']['mag']  # Get the mag value
-    # lon = eq_dict['geometry']['coordinates'][0]  # Get lon
-    lat = eq_dict['geometry']['coordinates'][1]  # Get lat
-    title = eq_dict['properties']['title']
+
     mags.append(eq_dict['properties']['mag'])
     lons.append(eq_dict['geometry']['coordinates'][0])
     lats.append(eq_dict['geometry']['coordinates'][1])
@@ -40,7 +41,7 @@ data = [
         
     },
 ]
-my_layout = Layout(title='Global Earthquakes') # set the map title
+my_layout = Layout(title=eq_title) # set the map title
 
 fig = {'data':data, 'layout':my_layout} # configure the data and it's layout into a dict
 offline.plot(fig, filename='global_earthquakes.html')
